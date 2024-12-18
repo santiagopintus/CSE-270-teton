@@ -22,7 +22,7 @@ class TestSmokeTest():
     self.driver.quit()
   
   def test_smoketest(self):
-    self.driver.get("https://santiagopintus.github.io/CSE-270-teton/index.html")
+    self.driver.get("http://localhost:5500/teton/1.6/")
     self.driver.set_window_size(1364, 721)
     elements = self.driver.find_elements(By.CSS_SELECTOR, ".header-logo img")
     assert len(elements) > 0
