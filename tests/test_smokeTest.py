@@ -22,7 +22,7 @@ class TestSmokeTest():
     self.driver.quit()
   
   def test_homepage(self):
-    self.driver.get("http://192.168.1.3:5500/teton/1.6/")
+    self.driver.get("http://localhost:5500/teton/1.6/")
     self.driver.set_window_size(1552, 832)
     elements = self.driver.find_elements(By.CSS_SELECTOR, ".header-logo img")
     assert len(elements) > 0
@@ -31,7 +31,7 @@ class TestSmokeTest():
     assert self.driver.title == "Teton Idaho CoC"
   
   def test_homePageComponents(self):
-    self.driver.get("http://192.168.1.3:5500/teton/1.6/")
+    self.driver.get("http://localhost:5500/teton/1.6/")
     self.driver.set_window_size(1552, 832)
     elements = self.driver.find_elements(By.CSS_SELECTOR, ".spotlight1")
     assert len(elements) > 0
@@ -41,7 +41,7 @@ class TestSmokeTest():
     WebDriverWait(self.driver, 0.005).until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, "section > h3")))
   
   def test_directory(self):
-    self.driver.get("http://192.168.1.3:5500/teton/1.6/")
+    self.driver.get("http://localhost:5500/teton/1.6/")
     self.driver.set_window_size(1364, 720)
     self.driver.find_element(By.LINK_TEXT, "Directory").click()
     self.driver.find_element(By.ID, "directory-grid").click()
@@ -50,7 +50,7 @@ class TestSmokeTest():
     assert self.driver.find_element(By.CSS_SELECTOR, ".gold-member:nth-child(9) > p:nth-child(2)").text == "Teton Turf and Tree"
   
   def test_join(self):
-    self.driver.get("http://192.168.1.3:5500/teton/1.6/")
+    self.driver.get("http://localhost:5500/teton/1.6/")
     self.driver.set_window_size(1552, 832)
     self.driver.find_element(By.LINK_TEXT, "Join").click()
     self.driver.find_element(By.NAME, "fname").click()
@@ -65,7 +65,7 @@ class TestSmokeTest():
     assert len(elements) > 0
   
   def test_admin(self):
-    self.driver.get("http://192.168.1.3:5500/teton/1.6/")
+    self.driver.get("http://localhost:5500/teton/1.6/")
     self.driver.set_window_size(1364, 720)
     self.driver.find_element(By.LINK_TEXT, "Admin").click()
     assert self.driver.find_element(By.CSS_SELECTOR, ".myinput:nth-child(2)").text == "Username:"
